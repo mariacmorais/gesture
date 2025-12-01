@@ -3,73 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gesture Annotation</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <main class="layout">
-    <header class="layout__header">
-      <h1>Gesture Clip Annotation</h1>
-      <p>Watch each clip and enter the name of the gestures you identify below.</p>
-    </header>
-
-    <section class="card">
-      <header class="card__header">
-        <h2>1. Select Clip</h2>
-      </header>
-      <div class="card__body card__body--stack">
-        <label class="field">
-          <span class="field__label">Clip to review</span>
-          <select id="clipSelect" class="field__control"></select>
-        </label>
-        <p class="help">Clips are configured in <code>clip-config.js</code>.</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <header class="card__header card__header--space">
-        <h2>2. Watch Clip</h2>
-        <div class="card__actions">
-          <button id="replayBtn" type="button" class="ghost">Replay Clip</button>
-        </div>
-      </header>
-      <div class="card__body">
-        <div class="video-shell">
-          <video id="caseVideo" controls playsinline preload="auto"></video>
-        </div>
-        <p class="help" id="videoStatus">Select a clip to begin.</p>
-      </div>
-    </section>
-
-    <section class="card">
-      <header class="card__header">
-        <h2>3. Name Gesture</h2>
-      </header>
-      <div class="card__body card__body--stack">
-        <p id="clipPrompt" class="help">Please enter the name of the gesture(s) you have identified from this clip.</p>
-        <textarea id="responseInput" class="field__control" rows="4" placeholder="Type your response here..."></textarea>
-        <button id="submitResponseBtn" class="primary">Submit Response</button>
-        <p id="submissionStatus" class="help"></p>
-      </div>
-    </section>
-  </main>
-
-  <template id="toastTemplate">
-    <div class="toast" role="status" aria-live="polite"></div>
-  </template>
-
-  <script src="clip-config.js"></script>
-  <script src="app.js"></script>
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Surgical Gesture Annotation</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -113,7 +46,7 @@
 
     <!-- Clips (will be rendered by JS) -->
     <div id="clipsContainer"></div>
-
+    
     <!-- Submit Button -->
     <section class="card">
       <header class="card__header">
