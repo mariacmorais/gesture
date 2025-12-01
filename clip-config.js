@@ -2,7 +2,7 @@
 window.ANNOTATION_CLIPS = Array.from({ length: 3 }, (_, i) => ({
   id: `clip_${i + 1}`,
   label: `Clip ${i + 1}`,
-  src: `https://raw.githubusercontent.com/mariacmorais/gesture/main/clip-${i + 1}.mp4`,
+  src: `https://raw.githubusercontent.com/mariacmorais/gesture/main/clip_${i + 1}.mp4`,
   poster: "",
   prompt: "Please enter the gesture(s) you have identified from this clip.",
 }));
