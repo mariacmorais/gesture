@@ -1,5 +1,5 @@
 // clip-config.js
-window.ANNOTATION_CLIPS = Array.from({ length: 10 }, (_, i) => ({
+window.ANNOTATION_CLIPS = Array.from({ length: 3 }, (_, i) => ({
   id: `clip_${i + 1}`,
   label: `Clip ${i + 1}`,
   src: `https://raw.githubusercontent.com/mariacmorais/gesture/main/clip-${i + 1}.mp4`,
