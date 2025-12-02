@@ -279,3 +279,10 @@ button:not(:disabled):active {
   gap: 0.5rem;
   font-size: 0.95rem;
 }
+
+.gesture-instrument-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
