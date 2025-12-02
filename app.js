@@ -60,18 +60,35 @@ function getParticipantData() {
 }
 
 function renderAllClips() {
+  const instrumentOptions = ["Dominant Instrument", "Passive Retractor", "Active Retractor"];
+
   clips.forEach((clip, index) => {
     const section = document.createElement("section");
     section.className = "card";
 
-    const checkboxesHTML = GESTURES.map((gesture, i) => `
-      <label class="checkbox">
-        <input type="checkbox"
-               name="gesture-${clip.id}"
-               value="${gesture}"
-               data-clip-id="${clip.id}"
-               data-gesture="${gesture}" />
-        ${gesture}
+    const gestureDropdowns = [1, 2, 3].map(i => `
+      <label class="field">
+        <span class="field__label">Gesture ${i}</span>
+        <select class="field__control"
+                name="gesture-${clip.id}-${i}"
+                data-clip-id="${clip.id}"
+                data-gesture-index="${i}">
+          <option value="">--Select Gesture--</option>
+          ${GESTURES.map(g => `<option value="${g}">${g}</option>`).join("")}
+        </select>
+      </label>
+    `).join("");
+
+    const instrumentDropdowns = [1, 2, 3].map(i => `
+      <label class="field">
+        <span class="field__label">Instrument ${i}</span>
+        <select class="field__control"
+                name="instrument-${clip.id}-${i}"
+                data-clip-id="${clip.id}"
+                data-instrument-index="${i}">
+          <option value="">--Instrument--</option>
+          ${instrumentOptions.map(opt => `<option value="${opt}">${opt}</option>`).join("")}
+        </select>
       </label>
     `).join("");
 
@@ -81,15 +98,17 @@ function renderAllClips() {
       </header>
       <div class="card__body card__body--stack">
         <video controls preload="auto" playsinline src="${clip.src}" class="video-shell__video"></video>
-        <p class="help">Select the surgical gestures present in this clip:</p>
-        <div class="checkbox-grid">
-          ${checkboxesHTML}
+        <div class="gesture-instrument-grid">
+          <div>${gestureDropdowns}</div>
+          <div>${instrumentDropdowns}</div>
         </div>
       </div>
     `;
+
     clipsContainer.appendChild(section);
   });
 }
+
 
 async function submitResponses() {
   const participant = getParticipantData();
@@ -98,16 +117,24 @@ async function submitResponses() {
     return;
   }
 
-  
 const responses = clips.map(clip => {
-  const selectedGestures = Array.from(document.querySelectorAll(`input[name="gesture-${clip.id}"]:checked`))
-                                .map(cb => cb.value);
+  const gestures = [1, 2, 3].map(i => {
+    const sel = document.querySelector(`select[name="gesture-${clip.id}-${i}"]`);
+    return sel?.value || "";
+  });
+
+  const instruments = [1, 2, 3].map(i => {
+    const sel = document.querySelector(`select[name="instrument-${clip.id}-${i}"]`);
+    return sel?.value || "";
+  });
+
   return {
     clipId: clip.id,
-    gestures: selectedGestures
+    gestures,
+    instruments
   };
 });
-
+  
   const payload = {
     participant,
     responses,
