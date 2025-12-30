@@ -39,7 +39,7 @@ function renderAllClips() {
     const section = document.createElement("section");
     section.className = "card";
 
-    const gestureDropdowns = [1, 2, 3].map(i => `
+    const gestureDropdowns = [1].map(i => `
       <label class="field">
         <span class="field__label">Gesture ${i}</span>
         <select class="field__control"
