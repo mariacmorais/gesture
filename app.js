@@ -4,6 +4,9 @@ const submissionStatus = document.getElementById("submissionStatus");
 const toastTemplate = document.getElementById("toastTemplate");
 
 const GESTURES = [
+  "Access and Entry",
+  "Blunt Manipulation",
+  "Camera Gestures",
   "Dissection Gestures",
   "Division Gestures",
   "Fluid Management",
