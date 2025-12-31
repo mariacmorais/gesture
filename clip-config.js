@@ -1,26 +1,17 @@
 // clip-config.js
+const BASE_URL = "https://yourdomain.com/clips/";
+
 window.ANNOTATION_CLIPS = [
-  {
-    id: "clip_01",
-    label: "Clip 1",
-    src: "https://raw.githubusercontent.com/mariacmorais/gesture/main/clip_01.mp4",
-    poster: "",
-    prompt: "Please enter the gesture(s) you have identified from this clip.",
-  },
-  {
-    id: "clip_02",
-    label: "Clip 2",
-    src: "https://raw.githubusercontent.com/mariacmorais/gesture/main/clip_02.mp4",
-    poster: "",
-    prompt: "Please enter the gesture(s) you have identified from this clip.",
-  },
-  {
-    id: "clip_03",
-    label: "Clip 3",
-    src: "https://raw.githubusercontent.com/mariacmorais/gesture/main/clip_03.mp4",
-    poster: "",
-    prompt: "Please enter the gesture(s) you have identified from this clip.",
-  },
+  ...Array.from({ length: 30 }, (_, i) => {
+    const index = String(i + 1).padStart(2, '0');
+    return {
+      id: `clip_${index}`,
+      label: `Clip ${i + 1}`,
+      src: `${BASE_URL}clip_${index}.mp4`,
+      poster: "",
+      prompt: "Please enter the cluster of gesture(s) you have identified from this clip.",
+    };
+  })
 ];
 
 window.ANNOTATION_SUBMISSION = {
