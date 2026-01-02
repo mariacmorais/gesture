@@ -1,5 +1,5 @@
 // clip-config.js
-const BASE_URL = "https://yourdomain.com/clips/";
+const BASE_URL = "https://github.com/mariacmorais/gesture/tree/main/dataset";
 
 window.ANNOTATION_CLIPS = [
   ...Array.from({ length: 30 }, (_, i) => {
