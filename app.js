@@ -143,7 +143,7 @@ async function submitResponses() {
       Object.entries(participant).forEach(([k, v]) => flat.set(k, v));
       responses.forEach((r, i) => {
         flat.set(`Clip_${i + 1}_ID`, r.clipId);
-        flat.set(`Clip_${i + 1}_Gestures`, r.gestures.join(", "));
+        flat.set(`Clip_${i + 1}_Gestures`, r.gestures);
       });
       flat.set("SubmittedAt", payload.submittedAt);
       await fetch(csvMirrorConfig.endpoint, {
