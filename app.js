@@ -62,7 +62,7 @@ function renderAllClips() {
 
     const gestureDropdowns = [1].map(i => `
       <label class="field">
-        <span class="field__label">Gestures ${i}</span>
+        <span class="field__label">Gestures</span>
         <select class="field__control"
                 name="gesture-${clip.id}-${i}"
                 data-clip-id="${clip.id}"
