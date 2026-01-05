@@ -52,6 +52,7 @@ function getParticipantData() {
     Specialty: document.getElementById("participantSpecialty")?.value.trim() || "",
     Practice: document.getElementById("participantPractice")?.value.trim() || "",
     Board: board?.value || "",
+    AdditionalGestures: document.getElementById("additionalGestures")?.value.trim() || ""
   };
 }
 
