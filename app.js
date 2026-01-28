@@ -54,7 +54,11 @@ function getParticipantData() {
     Practice: document.getElementById("participantPractice")?.value.trim() || "",
     Board: board?.value || "",
     Houston: houston?.value || "",
-    AdditionalGestures: document.getElementById("additionalGestures")?.value.trim() || ""
+    cameraMove: document.getElementById("cameraMove")?.value.trim() || "",
+    dissectionGestures: document.getElementById("dissectionGestures")?.value.trim() || "",
+    divisionGestures: document.getElementById("divisionGestures")?.value.trim() || "",
+    bluntManipulation: document.getElementById("bluntManipulation")?.value.trim() || "",
+    fluidManagement: document.getElementById("fluidManagement")?.value.trim() || ""
   };
 }
 
